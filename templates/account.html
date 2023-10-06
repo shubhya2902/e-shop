@@ -1,0 +1,58 @@
+{% extends 'master.html' %}
+{% block title %}Account{% endblock %}
+
+{% block body %}
+
+<section id="form" style="margin-left:20%; margin-top:20px; margin-bottom:50px;"><!--form-->
+	<img src="/static/images/shop/account2.jpeg" alt="" style="height:100px; width:100px; margin-left:35%;"/>
+		<div class="container">
+			<div class="row">
+				<br>
+				<br>
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2 style="color:orange;">Profile</h2>
+						<label>Name : </label>
+						<input class="form-control" style="width:300px;" type="text" value="{{user.username}}" aria-label="readonly input example" readonly>
+							<br>
+						<label>E-mail :</label>
+                            <input class="form-control" style="width:300px;" type="text" value="{{user.email}}" aria-label="readonly input example" readonly>
+					</div><!--/login form-->
+				</div>
+
+
+				<div class="col-sm-4" >
+					<div class="signup-form"><!--sign up form-->
+						<h2 style="color:orange;">Quick Links</h2>
+						<br>
+						<ul class="nav nav-pills">
+							<li><a href="{% url 'password_reset' %}" style="color:grey;" onMouseOver="this.style.color='orange'"
+				   				onMouseOut="this.style.color='grey'">Change Password</a></li>
+
+							<li><a href="{% url 'password_reset' %}" style="color:grey;" onMouseOver="this.style.color='orange'"
+				   				onMouseOut="this.style.color='grey'">Forgot Password ?</a></li>
+						</ul>
+
+						<br>
+						<br>
+
+						<ul class="nav nav-pills">
+								<li><a href="/cart/cart-detail/" style="color:grey;" onMouseOver="this.style.color='orange'"
+				   				onMouseOut="this.style.color='grey'">Cart&nbsp;<span class="badge badge-secondary">{{request.session.cart|length}}</span></a></li>
+
+								<li><a href="/order/" style="color:grey;" onMouseOver="this.style.color='orange'"
+				   				onMouseOut="this.style.color='grey'">Your Order</a></li>
+
+								<li><a href="{% url 'logout' %}" style="color:grey;" onMouseOver="this.style.color='orange'"
+				   				onMouseOut="this.style.color='grey'">Logout </a></li>
+						</ul>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	<br>
+	<br>
+	<a href="{% url 'index' %}" class="btn btn-default acc_btn" style="margin-left:35%; width:120px;">Done</a>
+	</section><!--/form-->
+
+{% endblock %}
